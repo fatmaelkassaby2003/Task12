@@ -18,6 +18,9 @@
             case 'posts':
                 include('./view/posts.php');
                 break;
+            case 'message':
+                include('./controller/store_message.php');
+            break;
             default:
                 include('./view/404.php');
                 break;

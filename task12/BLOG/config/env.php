@@ -1,7 +1,8 @@
 <?php 
-        define(constant_name: 'DB_HOST',value: 'localhost');
-        define(constant_name:'DB_NAME',value: 'blog');
-        define(constant_name:'DB_USER',value: 'root');
-        define(constant_name:'DB_PASSWORD',value: '');
-
+        
+        define('DB_HOST', 'localhost');
+        define('DB_NAME', 'blog');
+        define('DB_USER', 'root');
+        define('DB_PASSWORD', '');
+        
 ?>
