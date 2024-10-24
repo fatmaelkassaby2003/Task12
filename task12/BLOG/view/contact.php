@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <header class="masthead" style="background-image: url('assets/img/contact-bg.jpg')">
             <div class="container position-relative px-4 px-lg-5">
                 <div class="row gx-4 gx-lg-5 justify-content-center">
@@ -17,34 +18,46 @@
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <p>Want to get in touch? Fill out the form below to send me a message and I will get back to you as soon as possible!</p>
                         <div class="my-5">
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- * * SB Forms Contact Form * *-->
-                            <!-- * * * * * * * * * * * * * * *-->
-                            <!-- This form is pre-integrated with SB Forms.-->
-                            <!-- To make this form functional, sign up at-->
-                            <!-- https://startbootstrap.com/solution/contact-forms-->
-                            <!-- to get an API token!-->
                             <form id="contactForm" data-sb-form-api-token="API_TOKEN" method="POST" action="index.php?page=message">
-                                <div class="form-floating">
-                                    <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                            <div class="form-floating">
+                                    <input class="form-control" id="name" name="name" type="text" placeholder="Enter your name..."  />
                                     <label for="name">Name</label>
-                                    <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <?php 
+                                    if(isset($_SESSION['error']['name']))
+                                    {
+                                        echo $_SESSION['error']['name'];
+                                    }
+                                ?>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="email" type="email" placeholder="Enter your email..." data-sb-validations="required,email" />
+                                    <input class="form-control" id="email" name="email" type="email" placeholder="Enter your email..."  />
                                     <label for="email">Email address</label>
-                                    <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                    <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                    <?php 
+                                    if(isset($_SESSION['error']['email']))
+                                    {
+                                        echo $_SESSION['error']['email'];
+                                    }
+                                ?>
                                 </div>
                                 <div class="form-floating">
-                                    <input class="form-control" id="phone" type="tel" placeholder="Enter your phone number..." data-sb-validations="required" />
+                                    <input class="form-control" id="phone" name="phone" type="tel" placeholder="Enter your phone number..." />
                                     <label for="phone">Phone Number</label>
-                                    <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                    <?php 
+                                    if(isset($_SESSION['error']['phone']))
+                                    {
+                                        echo $_SESSION['error']['phone'];
+                                    }
+                                ?>
                                 </div>
                                 <div class="form-floating">
-                                    <textarea class="form-control" id="message" placeholder="Enter your message here..." style="height: 12rem" data-sb-validations="required"></textarea>
+                                    <textarea class="form-control" id="message" name="message" placeholder="Enter your message here..." style="height: 12rem"></textarea>
                                     <label for="message">Message</label>
-                                    <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                    <?php 
+                                    if(isset($_SESSION['error']['message']))
+                                    {
+                                        echo $_SESSION['error']['message'];
+                                    }
+                                ?>
                                 </div>
                                 <br />
                                 <!-- Submit success message-->
@@ -72,3 +85,4 @@
                 </div>
             </div>
         </main>
+        <?php unset($_SESSION['error']) ?>
