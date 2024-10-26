@@ -2,7 +2,6 @@
     $sql = "SELECT * FROM posts";
     $stmt=$conn->query($sql);
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
 ?>
 
 
@@ -25,7 +24,7 @@
                     <!-- Post preview-->
                     <?php foreach($result as $post): ?>
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="index.php?page=posts&id=<?= $post['id'] ?>">
                             <h2 class="post-title"><?php echo $post['title'] ?></h2>
                             <h3 class="post-subtitle"><?php echo $post['content'] ?></h3>
                         </a>
@@ -37,7 +36,7 @@
                     </div>
                     <!-- Divider-->
                     <hr class="my-4" />
-                    <?php endforeach ?>
+                    <?php endforeach; ?>
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
                 </div>
             </div>
