@@ -45,7 +45,6 @@ if (isset($_GET['id'])) {
                         echo "<p>{$post[0]['content']}</p>";
                         echo "<p>Posted on {$post[0]['created_at']}</p>";
                         
-                        // عرض التعليقات المرتبطة
                         echo "<h3>Comments:</h3>";
                         foreach ($post as $row) {
                             if (!empty($row['comment'])) {
@@ -65,3 +64,4 @@ if (isset($_GET['id'])) {
         </div>
     </div>
 </article>
+
